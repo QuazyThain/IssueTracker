@@ -7,17 +7,13 @@ define(["pages/ScrumBoard/Environment",
         var _private = {};
 
         _private.init = function () {
+            environment.user = new User();
             environment.router = new PageRouter();
 
-            environment.user = new User();
-            environment.user.url = '/api/user/current/';
+            environment.user.url = function () {
+                return '/api/user/current/';
+            };
             environment.user.fetch({async: false});
-
-            environment.user.on("sync", _private.userChange);
-        };
-
-        _private.userChange = function (model, resp, options) {
-            environment.router.navigate("sprint", {trigger: true});
         };
 
         _public.start = function () {

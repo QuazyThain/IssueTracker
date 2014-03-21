@@ -58,7 +58,6 @@ def user_current():
     return result(User().current())
 
 
-@app.route("/api/user/signin/", methods=["POST"])
 @app.route("/api/user/current/", methods=["POST"])
 def user_signin():
     return result(User().signin(request.form))
@@ -126,4 +125,4 @@ def subissue_all():
 # main
 
 if __name__ == "__main__":
-    app.run(port=80, debug=True)
+    app.run(port=8080, debug=True)

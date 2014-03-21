@@ -14,6 +14,10 @@ define(["pages/ScrumBoard/Environment",
                 "profile": "profile",
                 "*other": "other"
             },
+            
+            initialize: function () {
+                environment.user.on("sync", this.userChange, this);
+            },
 
             other: function () {
                 this.navigate("sprint", {trigger: true});
@@ -53,6 +57,10 @@ define(["pages/ScrumBoard/Environment",
                 } else {
                     this.navigate("signin", {trigger: true});
                 }
+            },
+            
+            userChange: function (model, resp, options) {
+                environment.router.navigate("sprint", {trigger: true});
             }
         })
     }

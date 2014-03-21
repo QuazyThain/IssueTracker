@@ -24,6 +24,11 @@ class Users(Model):
         self._collection()
         cursor = self._db.select_one({"_id": id}, self._fields)
         return cursor[0] if cursor.count() > 0 else dict()
+        
+    def check(self, email, password):
+        self._collection()
+        cursor = self._db.select_one({"email": email, "password": password}, self._fields)
+        return cursor[0] if cursor.count() > 0 else dict()
 
     def add(self, data):
         id = Counter().user()

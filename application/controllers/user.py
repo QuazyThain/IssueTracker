@@ -1,3 +1,5 @@
+from flask import session
+
 from controllers.controller import Controller
 from models.users import Users
 
@@ -32,10 +34,16 @@ class User(Controller):
         return data
 
     def current(self):
-        return dict()
+        return self._users.check(session.get("email"), session.get("password"))
 
     def signin(self, data):
+        user = self._users.check(data.get("email"), data.get("password"))
+        if "email" in user and "password" in user:
+            session["email"] = user["email"]
+            session["password"] = user["password"]
         return self.current()
 
     def signout(self):
+        session.pop('email', None)
+        session.pop('password', None)
         return self.current()
