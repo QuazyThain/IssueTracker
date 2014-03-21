@@ -22,10 +22,8 @@ define(["pages/ScrumBoard/Environment",
                 event = event || window.event;
                 event.preventDefault ? event.preventDefault() : (event.returnValue = false);
 
-                environment.user.fetch({type: "POST", data:{
-                    email: this.$el.find("#login_form input[name=email]").val(),
-                    password: this.$el.find("#login_form input[name=password]").val()
-                }});
+                environment.user.signin(this.$el.find("#login_form input[name=email]").val(), 
+                                       this.$el.find("#login_form input[name=password]").val());
 
                 return false;
             }

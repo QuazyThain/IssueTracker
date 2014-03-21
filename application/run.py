@@ -63,8 +63,9 @@ def user_signin():
     return result(User().signin(request.form))
 
 
-@app.route("/api/user/signout/", methods=["GET"])
+@app.route("/api/user/current/", methods=["DELETE"])
 def user_signout():
+    print "LOGOUT"
     return result(User().signout())
 
 

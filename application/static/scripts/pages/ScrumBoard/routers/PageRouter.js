@@ -60,7 +60,11 @@ define(["pages/ScrumBoard/Environment",
             },
             
             userChange: function (model, resp, options) {
-                environment.router.navigate("sprint", {trigger: true});
+                if (environment.signed()) {
+                    environment.router.navigate("sprint", {trigger: true});
+                } else {
+                    environment.router.navigate("signin", {trigger: true});
+                }
             }
         })
     }
