@@ -1,9 +1,9 @@
 from pymongo import MongoClient
 
-from models.model import Model
+from models.singleton import Singleton
 
 
-class DB(Model):
+class DB(Singleton):
     _client = None
     _db = None
     _collection = None

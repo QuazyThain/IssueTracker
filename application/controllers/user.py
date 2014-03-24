@@ -12,21 +12,26 @@ class User(Controller):
         self._users = Users()
 
     def get(self, id):
+        self._permissions.signed()
         data = self._users.get(id)
         if "password" in data:
             del data["password"]
         return data
 
     def add(self, data):
+        self._permissions.signed()
         return self._users.add(data)
 
     def edit(self, id, data):
+        self._permissions.signed()
         return self._users.edit(id, data)
 
     def delete(self, id):
+        self._permissions.signed()
         return self._users.delete(id)
 
     def all(self, filter):
+        self._permissions.signed()
         data = self._users.all(filter)
         for item in data:
             if "password" in item:

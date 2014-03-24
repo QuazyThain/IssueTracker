@@ -4,7 +4,7 @@ from flask import request
 from flask import redirect
 
 from helper import result
-from models.permissions import permissions
+from models.permissions import PermissionsError
 from controllers.user import User
 from controllers.issue import Issue
 from controllers.subissue import Subissue
@@ -24,6 +24,13 @@ def index():
 @app.route("/<path:path>/")
 def index_redirect(path=None):
     return redirect("/")
+    
+    
+# error
+
+@app.errorhandler(PermissionsError)
+def error_permissions(error):
+    return result(dict({"error": "Permissions error"})), 401
 
 
 # user
