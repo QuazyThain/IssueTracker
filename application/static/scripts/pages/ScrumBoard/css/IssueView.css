@@ -45,3 +45,49 @@
 .issue-wrapper .top-right-corner img {
     height: 13px;
 }
+
+.issue-wrapper .image-edit,
+.issue-wrapper .image-delete,
+.issue-wrapper .image-close {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.issue-wrapper .image-edit:hover,
+.issue-wrapper .image-delete:hover,
+.issue-wrapper .image-close:hover {
+    opacity: 1;
+}
+
+.issue-wrapper .add-subissue {
+    width: auto;
+    margin: 0 2px 2px;
+    padding: 10px;
+    border: 1px solid #B2C0C0;
+    background-color: #F7FAF4;
+}
+
+.issue-wrapper .add-subissue input[type=text] {
+    width: 100%;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.issue-wrapper .add-subissue textarea {
+    resize: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.issue-wrapper .submit-wrapper {
+    margin-top: 3px;
+    width: 100px;
+    margin-left: auto;
+}
+
+.issue-wrapper .add {
+    width: 100%;
+    background-color: #6E914F;
+    color: #FAFFFA;
+    font-weight: bold;
+}

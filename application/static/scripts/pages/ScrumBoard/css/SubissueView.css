@@ -1,0 +1,12 @@
+.subissue {
+    width: 273px;
+    height: 65px;
+    border: 1px solid #B2C0C0;
+    background-color: #F7FAF4;
+    border-left-width: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    padding: 7px;
+}

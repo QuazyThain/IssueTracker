@@ -17,13 +17,20 @@ define(["text!pages/ScrumBoard/html/IssueView.html",
             },
 
             render: function () {
+                var dragSettings = {
+                    revert : "invalid",
+                    opacity : 0.75,
+                    zIndex : 100,
+                    containment : "#wrapper",
+                    cursor : "move"
+                };
                 this.$el.html(this.template({
                     name: this.item.get("name"),
                     description: this.item.get("description")
-                }));
+                })).draggable(dragSettings);
 
                 return this;
             },
-        });    
+        });
     }
 );
