@@ -31,9 +31,7 @@ define(["pages/ScrumBoard/Environment",
                 collection.each(this.issue, this);
             },
             
-            issue: function (issue) {
-                alert(issue.get("name"));
-                
+            issue: function (issue) {              
                 var view = new IssueView({item: issue});
                 view.render();
                 

@@ -1,4 +1,4 @@
-<% if (kind == "story") {
+<% /*if (kind == "story") {
        var kindColor = "story-color";
     }
    if (kind == "technical task") {
@@ -9,7 +9,18 @@
     }
     if (mode == "backlog") {
         backlogMode = "backlog-mode"
-    } else backlogMode = ""%>
+    } else backlogMode = ""*/
+    
+    var kindColor = "story-color";
+    var mode = "backlog";
+    var issueId = "";
+    var status = "to do";
+    var backlogMode = "";
+    var kind = "story";
+//    var name = "Some name";
+//    var description = "Very long description";
+    var estimate = 5;
+%>
 
 <div class="issue <%=kindColor%> <%=backlogMode%>" data-issue-id="<%= issueId %>">
     <div class="top-left-corner">

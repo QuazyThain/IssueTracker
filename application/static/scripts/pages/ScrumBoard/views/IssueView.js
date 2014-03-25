@@ -11,12 +11,16 @@ define(["text!pages/ScrumBoard/html/IssueView.html",
                 
             },
 
-            initialize: function(options) {
+            initialize: function (options) {
+                this.item = options.item;
                 
             },
 
             render: function () {
-                this.$el.html(this.template());
+                this.$el.html(this.template({
+                    name: this.item.get("name"),
+                    description: this.item.get("description")
+                }));
 
                 return this;
             },
