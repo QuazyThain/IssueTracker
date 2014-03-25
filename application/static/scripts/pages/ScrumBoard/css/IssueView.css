@@ -1,0 +1,47 @@
+.issue-wrapper .issue {
+      width: 280px;
+      height: 75px;
+      border: 1px solid #B2C0C0;
+      background-color: #F7fAf4;
+      border-left-width: 10px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      margin-left: 3px;
+      margin-bottom: 2px;
+      padding: 7px;
+}
+
+.issue-wrapper .story-color {
+    border-left-color: #133944 ;
+}
+
+.issue-wrapper .tech-color {
+    border-left-color: #454720 ;
+}
+
+.issue-wrapper .bug-color {
+    border-left-color: #993333 ;
+}
+
+.issue-wrapper .issue p {
+    clear: both;
+}
+
+.issue-wrapper .top-left-corner {
+    float: left;
+    font-size: 10px;
+}
+
+.issue-wrapper .top-right-corner {
+    float: right;
+    height: 15px;
+    font-size: 10px;
+}
+
+.issue-wrapper .top-left-corner img {
+    height: 13px;
+}
+
+.issue-wrapper .top-right-corner img {
+    height: 13px;
+}
