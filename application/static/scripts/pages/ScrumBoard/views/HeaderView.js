@@ -9,7 +9,7 @@ define(["pages/ScrumBoard/Environment",
             template: _.template(headerHTML),
 
             events: {
-                "click #logout_button": "signout"
+                "click #logout-button": "signout"
             },
 
             render: function() {

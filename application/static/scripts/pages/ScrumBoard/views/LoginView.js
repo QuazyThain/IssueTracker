@@ -9,7 +9,7 @@ define(["pages/ScrumBoard/Environment",
             template: _.template(loginHTML),
 
             events: {
-                "submit #login_form": "signin"
+                "submit #login-form": "signin"
             },
 
             render: function () {
@@ -22,8 +22,8 @@ define(["pages/ScrumBoard/Environment",
                 event = event || window.event;
                 event.preventDefault ? event.preventDefault() : (event.returnValue = false);
 
-                environment.user.signin(this.$el.find("#login_form input[name=email]").val(), 
-                                       this.$el.find("#login_form input[name=password]").val());
+                environment.user.signin(this.$el.find("#login-form input[name=email]").val(), 
+                                       this.$el.find("#login-form input[name=password]").val());
 
                 return false;
             }
