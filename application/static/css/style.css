@@ -25,3 +25,7 @@ textarea {
     width: 980px;
     margin: auto;
 }
+
+.lock {
+    display: none;
+}
