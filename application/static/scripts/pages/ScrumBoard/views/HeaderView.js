@@ -9,7 +9,10 @@ define(["pages/ScrumBoard/Environment",
             template: _.template(headerHTML),
 
             events: {
-                "click #logout-button": "signout"
+                "click #logout-button": "signout",
+                "click #header-logo": "sprint",
+                "click #a-team-member": "profile",
+                "click #userpick": "profile"
             },
 
             render: function() {
@@ -27,7 +30,15 @@ define(["pages/ScrumBoard/Environment",
 
             signout: function (event) {
                 environment.user.signout();
-            }
+            },
+            
+            sprint: function (event) {
+                environment.router.navigate("sprint", {trigger: true});
+            },
+            
+            profile: function (event) {
+                environment.router.navigate("profile", {trigger: true});
+            }           
         });    
     }
 );
