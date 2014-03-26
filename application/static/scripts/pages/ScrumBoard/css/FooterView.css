@@ -8,10 +8,6 @@
     float: right;
 }
 
-#footer #footer-right-corner img {
-    height: 20px;
-}
-
 #footer #footer-logo {
     width: 100px;
 }
@@ -23,10 +19,6 @@
 #footer #footer-line a {
     color: #4AAFF7;
     text-decoration: none;
-}
-
-#footer #footer-line img {
-    height: 35px;
 }
 
 #footer #footer-img {
