@@ -3,7 +3,7 @@ define(["text!pages/ScrumBoard/html/SubissueView.html",
 
     function(subissueHTML, subissueCSS) {
         return Backbone.View.extend({
-          /*  className: "",*/
+            className: "subissue-wrapper",
 
             template: _.template(subissueHTML),
 
