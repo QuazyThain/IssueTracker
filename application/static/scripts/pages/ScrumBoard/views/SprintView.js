@@ -21,8 +21,8 @@ define(["pages/ScrumBoard/Environment",
             render: function () {
                 this.$el.html(this.template());
 
-                environment.issues.fetch({"reset": true});
                 environment.issues.on("reset", this.draw, this);
+                environment.issues.fetch({"reset": true});
 
                 return this;
             },
@@ -43,7 +43,19 @@ define(["pages/ScrumBoard/Environment",
                 }
                 
                 this.$(selector).append(view.el);
-            }
+            },
+
+            equalColumns: function (selector) {
+                var tallestColumn = 0;
+                $(selector).height('100%');
+                _.each($(selector), function(column) {
+                    var $currentHeight = $(column).height();
+                    if ($currentHeight > tallestColumn) {
+                        tallestColumn = $currentHeight;
+                    }
+                });
+                $(selector).height(tallestColumn + 50);
+            },
         });    
     }
 );

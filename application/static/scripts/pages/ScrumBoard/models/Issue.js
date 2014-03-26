@@ -7,7 +7,6 @@ define(["pages/ScrumBoard/collections/Subissues"],
 
             initialize: function () {
                 this.subissues = new Subissues();
-                this.subissues.fetch({"reset": true, "data": {"issue": this.id}});
             }
         });
     }

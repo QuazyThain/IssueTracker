@@ -1,11 +1,15 @@
 <% 
-    /*var kindColor = "";
+    var kind = "subtask";
+    var status = "to do";
+    var estimate = 3;
+
+    var kindColor = "subtask-color";
     if (kind == "subtask") {
         kindColor = "subtask-color";
     }
     if (kind == "subbug") {
         kindColor = "subbug-color";
-    }*/
+    }
 %>
 
 <div class="subissue <%= kindColor %>" data-parent="<%= parent %>" data-id="<%= _id %>">
