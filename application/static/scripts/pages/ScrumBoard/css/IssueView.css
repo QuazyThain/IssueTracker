@@ -47,15 +47,13 @@
 }
 
 .issue-wrapper .image-edit,
-.issue-wrapper .image-delete,
-.issue-wrapper .image-close {
+.issue-wrapper .image-delete {
     opacity: 0.5;
     cursor: pointer;
 }
 
 .issue-wrapper .image-edit:hover,
-.issue-wrapper .image-delete:hover,
-.issue-wrapper .image-close:hover {
+.issue-wrapper .image-delete:hover {
     opacity: 1;
 }
 

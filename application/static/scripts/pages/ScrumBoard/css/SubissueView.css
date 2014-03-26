@@ -44,3 +44,7 @@
 .subissue-wrapper .image-delete:hover {
     opacity: 1;
 }
+
+.subissue-wrapper p {
+    clear: both;
+}
