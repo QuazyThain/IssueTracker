@@ -24,3 +24,10 @@
     color: white;
     text-decoration: none;
 }
+
+#header #userpick,
+#header #header-logo,
+#header #a-team-member,
+#header #logout-button {
+    cursor: pointer;
+}
