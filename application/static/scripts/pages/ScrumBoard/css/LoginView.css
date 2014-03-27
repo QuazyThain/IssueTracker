@@ -6,16 +6,16 @@
 #login #log-in {
     position: relative;
     width: 350px;
-    height: 430px;
+    height: 320px;
     margin: 0 auto;
-    padding: 40px 30px;
+    padding: 20px 30px;
     border: 1px solid #C0CAD5;
     background-color: #D1E3C2;
 }
 
 #login #log-image {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 0;
 }
 
 #login #log-image img {
