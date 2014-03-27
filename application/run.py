@@ -6,6 +6,7 @@ from flask import redirect
 from helper import result
 from models.permissions import PermissionsError
 from controllers.user import User
+from controllers.backlog import Backlog
 from controllers.issue import Issue
 from controllers.subissue import Subissue
 
@@ -74,6 +75,29 @@ def user_signin():
 def user_signout():
     print "LOGOUT"
     return result(User().signout())
+
+
+# backlog
+
+@app.route("/api/backlog/<int:id>/", methods=["GET"])
+def backlog_get(id):
+    return result(Backlog().get(id))
+
+@app.route("/api/backlog/", methods=["POST"])
+def backlog_add():
+    return result(Backlog().add(request.json))
+
+@app.route("/api/backlog/<int:id>/", methods=["PUT"])
+def backlog_edit(id):
+    return result(Backlog().edit(id, request.json))
+
+@app.route("/api/backlog/<int:id>/", methods=["DELETE"])
+def backlog_delete(id):
+    return result(Backlog().get(id))
+
+@app.route("/api/backlog/all/", methods=["GET"])
+def backlog_all():
+    return result(Backlog().all(request.args))
 
 
 # issue
