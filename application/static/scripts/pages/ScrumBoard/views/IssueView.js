@@ -25,11 +25,7 @@ define(["text!pages/ScrumBoard/html/IssueView.html",
                     cursor: "move"
                 };
                 
-                this.$el.html(this.template(
-                 /*   name: this.item.get("name"),
-                    description: this.item.get("description"),*/
-                    this.item.toJSON()
-                ));
+                this.$el.html(this.template({"issue": this.item.toJSON()}));
 
                 if ( this.item.get("kind") !== "story" ) {
                     this.$el.draggable(dragSettings);
