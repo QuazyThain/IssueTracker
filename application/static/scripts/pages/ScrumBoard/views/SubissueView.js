@@ -24,13 +24,14 @@ define(["text!pages/ScrumBoard/html/SubissueView.html",
             },
 
             render: function () {
-                this.$el.html(this.template({
+                this.$el.html(this.template(/*{
                     _id: this.item.id,
                     name: this.item.get("name"),
                     description: this.item.get("description")
-                }));
+                }*/
+                this.item.toJSON()));
                 
-                this.$el.draggable(this.dragSettings)
+                this.$el.draggable(this.dragSettings);
 
                 return this;
             }
