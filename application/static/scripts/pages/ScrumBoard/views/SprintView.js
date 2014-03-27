@@ -46,9 +46,12 @@ define(["pages/ScrumBoard/Environment",
                     } else if ( ui.draggable.hasClass("subissue-wrapper") ) {
                         var parentId = ui.draggable.find(".subissue").data("parent");
                         var issueWrapper = $(this).find(".subissue-container")
-                            .filter(function() { return $.data(this, "issue-id") == parentId; })
+                            .filter(function() {
+                                return $(this).data("issue-id") == parentId;
+                        });
                         if ( !issueWrapper.size() ) {
                             issueWrapper = $("<div>");
+                            issueWrapper.append("<p>container</p>");
                             issueWrapper.attr('data-issue-id');
                             issueWrapper.addClass("subissue-container").data("issue-id", parentId).appendTo($(this));
                         }
