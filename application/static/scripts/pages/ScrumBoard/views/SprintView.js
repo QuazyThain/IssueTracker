@@ -70,7 +70,7 @@ define(["pages/ScrumBoard/Environment",
                 var selector = ".todo";
                 if (issue.get("status") == "doing") {
                     selector = ".doing";
-                } else if (issue.get("status") == "") { //??
+                } else if (issue.get("status") == "done") {
                     selector = ".done";
                 }
                 

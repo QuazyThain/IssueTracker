@@ -1,4 +1,4 @@
-<% /*var kindColor = "";
+<% var kindColor = "";
     if (obj.kind == "story") {
         kindColor = "story-color";
     }
@@ -8,11 +8,11 @@
    if (obj.kind == "bug") {
        kindColor = "bug-color";
     }
-    if (mode == "backlog") {
+    /*if (mode == "backlog") {
         backlogMode = "backlog-mode"
     } else backlogMode = ""*/
     
-    var kindColor = "story-color";
+   // var kindColor = "story-color";
     var mode = "";
 //    var issueId = "";
 //    var status = "to do";
@@ -31,12 +31,12 @@
         <% } %>
         <span class="estimate">Estimate: <% if (obj.estimate) {%> <%=obj.estimate%> sp <%} else {%> no estimate <%}%></span>
     </div>
-    <% if (mode == "backlog" || obj.status == "to do") { %>
+   <!--  <% if (mode == "backlog" || obj.status == "to do") { %> -->
     <div class="top-right-corner">
         <img class="image-edit" src="/static/images/edit.png" alt="edit" />
         <img class="image-delete" src="/static/images/delete.png" alt="delete" />
     </div>
-    <% } %>
+<!--     <% } %> -->
     <p class="name"><b><%= obj.name %></b></p>
     <p class="description"><%= obj.description %></p>
 </div>
