@@ -25,11 +25,11 @@ define(["text!pages/ScrumBoard/html/IssueView.html",
                     cursor: "move"
                 };
                 
-                this.$el.html(this.template({
-                    name: this.item.get("name"),
-                    description: this.item.get("description")
-                })).draggable(dragSettings);
-                
+                this.$el.html(this.template({"issue": this.item.toJSON()}));
+
+                if ( this.item.get("kind") !== "story" ) {
+                    this.$el.draggable(dragSettings);
+                }
                 this.item.subissues.on("reset", this.draw, this);
                 this.item.subissues.fetch({"reset": true, "data": {"issue": this.item.id}});
 
@@ -40,12 +40,12 @@ define(["text!pages/ScrumBoard/html/IssueView.html",
                 collection.each(this.subissue, this);
             },
 
-            subissue: function (subissue) {              
+            subissue: function (subissue) {
                 var view = new SubissueView({item: subissue});
-                view.render();
+                view.render().$el.data('issue', this.$el);
 
                 this.$(".subissue-container").append(view.el);
-            }                       
+            }
         });
     }
 );

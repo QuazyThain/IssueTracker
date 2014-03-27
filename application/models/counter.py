@@ -21,6 +21,8 @@ class Counter(Model):
             self._db.insert({"_id": "issue", "next": 0})
         if not(self._db.check({"_id": "subissue"})):
             self._db.insert({"_id": "subissue", "next": 0})
+        if not(self._db.check({"_id": "backlog"})):
+            self._db.insert({"_id": "backlog", "next": 0})
 
     def _next(self, name):
         self._collection()
@@ -36,3 +38,6 @@ class Counter(Model):
 
     def subissue(self):
         return self._next("subissue")
+        
+    def subissue(self):
+        return self._next("backlog")

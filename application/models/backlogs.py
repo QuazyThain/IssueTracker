@@ -3,21 +3,20 @@ from models.db import DB
 from models.counter import Counter
 
 
-class Issues(Model):
+class Backlogs(Model):
     _db = None
-
+    
     _fields = {"_id": 1, 
                "name": 1,
-               "description": 1,
-               "kind": 1}
+               "sprint": 1}
 
     def __init__(self):
-        super(Issues, self).__init__()
+        super(Backlogs, self).__init__()
         self._db = DB()
 
     def _collection(self):
-        self._db.collection("issues")
-
+        self._db.collection("backlogs")
+        
     def get(self, id):
         self._collection()
         cursor = self._db.select_one({"_id": id}, self._fields)
@@ -28,8 +27,7 @@ class Issues(Model):
         self._collection()
         self._db.insert({"_id": id,
                          "name": data["name"],
-                         "description": data["description"],
-                         "kind": data["kind"]})
+                         "sprint": data["sprint"]})
         return self.get(id)
 
     def edit(self, id, data):
@@ -39,10 +37,8 @@ class Issues(Model):
         value = dict()
         if data["name"] is not None:
             value["name"] = data["name"]
-        if data["description"] is not None:
-            value["description"] = data["description"]
-        if data["kind"] is not None:
-            value["kind"] = data["kind"]
+        if data["sprint"] is not None:
+            value["sprint"] = data["sprint"]
 
         self._db.update(where, {"$set": value})
         return self.get(id)
@@ -55,9 +51,7 @@ class Issues(Model):
     def all(self, filter):
         self._collection()
         where = dict()
-        
-        if "sprint" in filter:
-            where["sprint"] = int(filter["sprint"])
-       
+     
         cursor = self._db.select(where, self._fields)
         return [item for item in cursor]
+

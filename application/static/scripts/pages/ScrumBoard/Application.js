@@ -11,7 +11,7 @@ define(["pages/ScrumBoard/Environment",
             environment.router = new PageRouter();
 
             environment.user.url = function () {
-                return '/api/user/current/';
+                return environment.user.id ? '/api/user/' + environment.user.id + '/' : '/api/user/current/';
             };
             environment.user.fetch({async: false});
         };

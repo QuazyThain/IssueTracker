@@ -21,6 +21,7 @@ define(["pages/ScrumBoard/Environment",
 
             render: function () {
                 this.$el.html(this.template());
+                this.makeColumnsDroppable();
 
                 var filter = new FilterView();
                 filter.render();
@@ -35,15 +36,41 @@ define(["pages/ScrumBoard/Environment",
             draw: function (collection, options) {
                 collection.each(this.issue, this);
             },
+
+            makeColumnsDroppable: function() {
+                var onColumnDrop = function (event, ui) {
+                    if ( ui.draggable.hasClass("issue-wrapper") ) {
+                        ui.draggable
+                            .appendTo($(this))
+                            .css({"top" : 0, "left" : 0});
+                    } else if ( ui.draggable.hasClass("subissue-wrapper") ) {
+                        var parentId = ui.draggable.find(".subissue").data("parent");
+                        var issueWrapper = $(this).find(".subissue-container")
+                            .filter(function() {
+                                return $(this).data("issue-id") == parentId;
+                        });
+                        if ( !issueWrapper.size() ) {
+                            issueWrapper = $("<div>");
+                            issueWrapper.append("<div class='container'>container</p>");
+                            issueWrapper.attr('data-issue-id');
+                            issueWrapper.addClass("subissue-container").data("issue-id", parentId).appendTo($(this));
+                        }
+                        ui.draggable.appendTo($(issueWrapper)).css({"top" : 0, "left" : 0});
+                    }
+                } 
+                this.$(".column").droppable({
+                    drop: onColumnDrop
+                });
+            },
             
-            issue: function (issue) {              
+            issue: function (issue) {
                 var view = new IssueView({item: issue});
                 view.render();
                 
                 var selector = ".todo";
                 if (issue.get("status") == "doing") {
                     selector = ".doing";
-                } else if (issue.get("status") == "") {
+                } else if (issue.get("status") == "done") {
                     selector = ".done";
                 }
                 

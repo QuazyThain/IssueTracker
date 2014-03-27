@@ -18,9 +18,8 @@ define(["pages/ScrumBoard/Environment",
             render: function() {
                 var user = null;
                 if (environment.signed()) {
-                    user = {
-                        "name": (environment.user.get("first_name") + ' ' + environment.user.get("last_name")).trim()
-                    };
+                    user = environment.user.toJSON();
+                    user.name = (user.first_name + user.last_name).trim();
                 }
             
                 this.$el.html(this.template({"user": user}));
