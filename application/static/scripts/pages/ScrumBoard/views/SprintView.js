@@ -2,9 +2,10 @@ define(["pages/ScrumBoard/Environment",
         "text!pages/ScrumBoard/html/SprintView.html",
         "css!pages/ScrumBoard/css/SprintView.css",
         "pages/ScrumBoard/collections/Issues",
-        "pages/ScrumBoard/views/IssueView"],
+        "pages/ScrumBoard/views/IssueView",
+        "pages/ScrumBoard/views/FilterView"],
 
-    function(environment, sprintHTML, sprintCSS, Issues, IssueView) {
+    function(environment, sprintHTML, sprintCSS, Issues, IssueView, FilterView) {
         return Backbone.View.extend({
             id: "sprint",
 
@@ -20,6 +21,10 @@ define(["pages/ScrumBoard/Environment",
 
             render: function () {
                 this.$el.html(this.template());
+
+                var filter = new FilterView();
+                filter.render();
+                this.$("#filter-container").append(filter.el);
 
                 environment.issues.on("reset", this.draw, this);
                 environment.issues.fetch({"reset": true});
@@ -55,7 +60,7 @@ define(["pages/ScrumBoard/Environment",
                     }
                 });
                 $(selector).height(tallestColumn + 50);
-            },
+            }
         });    
     }
 );
