@@ -38,7 +38,7 @@ define(["pages/ScrumBoard/Environment",
             },
 
             makeColumnsDroppable: function() {
-                var onTodoDrop = function (event, ui) {
+                var onColumnDrop = function (event, ui) {
                     if ( ui.draggable.hasClass("issue-wrapper") ) {
                         ui.draggable
                             .appendTo($(this))
@@ -51,7 +51,7 @@ define(["pages/ScrumBoard/Environment",
                         });
                         if ( !issueWrapper.size() ) {
                             issueWrapper = $("<div>");
-                            issueWrapper.append("<p>container</p>");
+                            issueWrapper.append("<div class='container'>container</p>");
                             issueWrapper.attr('data-issue-id');
                             issueWrapper.addClass("subissue-container").data("issue-id", parentId).appendTo($(this));
                         }
@@ -59,15 +59,8 @@ define(["pages/ScrumBoard/Environment",
                     }
                 } 
                 this.$(".column").droppable({
-                    drop: onTodoDrop
+                    drop: onColumnDrop
                 });
-               /* this.$(".doing").droppable({
-                    drop: onDoingDrop
-                });
-                this.$(".done").droppable({
-                    drop: onDoneDrop
-                });*/
-
             },
             
             issue: function (issue) {
@@ -77,7 +70,7 @@ define(["pages/ScrumBoard/Environment",
                 var selector = ".todo";
                 if (issue.get("status") == "doing") {
                     selector = ".doing";
-                } else if (issue.get("status") == "") {
+                } else if (issue.get("status") == "") { //??
                     selector = ".done";
                 }
                 

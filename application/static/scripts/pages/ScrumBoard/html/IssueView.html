@@ -40,10 +40,10 @@
     <p class="name"><b><%= obj.name %></b></p>
     <p class="description"><%= obj.description %></p>
 </div>
-<div class="subissue-container" data-issue-id="<%= obj._id %>">
+<div class="subissue-container" data-issue-id="<%= obj._id %>"><!--  lock -->
 </div>
 <% if (obj.status == "to do" && obj.kind == "story" && mode !== "backlog") { %>
-<div class="add-subissue lock">
+<div class="add-subissue "> <!-- lock -->
 <input type="text" placeholder="Enter the name of subissue"/><br />
 <textarea placeholder="Enter the description of subissue"></textarea><br />
 <div class="submit-wrapper">
